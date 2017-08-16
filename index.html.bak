@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>EOC Subcontractors</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+    <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+
+    <style>
+        html, body, #map {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vollkorn';
+        }
+        #side-panel {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 340px;
+            color: black;
+            background: #d3d3d3;
+            border-right: 3px solid darkgray;
+            overflow-y: auto;
+            opacity: .8;
+            z-index: 800;
+        }
+        #side-panel p {
+            margin: 8px 0 4px; 
+            padding: 0 25px 0 15px;
+            color: black;
+            text-align: left;
+            font-size: .95em;
+        }
+        #side-panel img {
+            margin: 0 0 15px 15px;
+            width: 90%;
+            border: 1px solid black;
+        }
+        #side-panel a {
+            text-decoration: none;
+            color: black;
+        }
+        h1, h2 {
+         text-align: center;
+        }
+        .image {
+            height: 90px;
+            width: 90px;
+            border: solid;
+            float: left;
+            margin: 0 15px 0 0;
+        }
+        .custom-popup .leaflet-popup-content-wrapper {
+            font-size: 12px;
+            max-width: 350px;
+            min-height: 122px;
+        }
+
+   
+        footer {
+
+        }
+        
+    </style>
+</head>
+
+<body>
+   <div class='custom-popup' id='map'></div>
+   <div id='side-panel'>
+      <h1>EOC Subcontractors (2016)</h1>
+      <p>
+         This map shows the locations of all the subcontractors that the Contra Costa Economic Opportunity Council has funded for 2016.  Hover over the marker locations to reveal further information about each subcontractor.
+      </p>
+      <br>
+      <p>
+         Subcontractors Funded In 2016:
+      </p>
+      <ul>
+         <li><a href="http://www.bacr.org/">Bay Area Community Resources</a></li>
+         <li><a href="https://www.baylegal.org/">Bay Area Legal Aid</a></li>
+         <li><a href="http://cchealth.org/homeless/">Contra Costa Health Services Homeless Program</a></li>
+         <li><a href="http://ccinterfaithhousing.org/">Contra Costa Interfaith Housing</a></li>
+         <li><a href="http://www.opportunityjunction.org/">Opportunity Junction</a></li>
+         <li><a href="http://rysecenter.org/">RYSE, Inc.</a></li>
+         <li><a href="http://shelterinc.org/">Shelter Inc. of Contra Costa</a></li>
+         <li><a href="http://www.standffov.org/">Stand! For Families Free of Violence</a></li>
+         <li><a href="http://ccclubhouse.org/clubhouse-model.html">The Contra Costa Club Houses, Inc</a></li>
+         <li><a href="http://www.whiteponyexpress.org/">White Pony Express</a></li>
+      </ul>
+      <div id="ehsdImage">
+          <a href="http://ehsd.org/"><img src="images/ehsd.png"></a>
+      </div>
+      <div id='capImage'>
+         <a href="http://www.communityactionpartnership.com/index.php"><img src="images/cap.png"></a>   
+      </div>
+      <footer>
+         <br>
+         <p>Map authored by Matthew Bacinskas</p>
+         <!-- <p></p> -->
+      </footer>
+   </div>
+   
+
+    <!-- Adding link to the geojson -->
+    <script src="eoc.geojson"></script>
+    <script src="cc_citylimits.geojson"></script>
+    <script>
+        
+      // Instantiating our map object
+      var map = L.map('map', {
+          center: [37.953409, -122.210795],
+          zoom: 11,
+          zoomControl: false,
+      });
+      
+     // Load map tiles from CARTO and add to map
+     var tiles = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a> | Map Authored by <a href="https://bazini627.github.io/" target="blank">Matthew Bacinskas</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+     });
+      
+      tiles.addTo(map);
+      
+      // Move zoom control to the top right
+      L.control.zoom({
+         position:'topright'
+      }).addTo(map);
+      
+      // Work with geojson of cities, switch takes a value (city name in our geojson) and checks it against value we have for case
+      var cityLayer = L.geoJson(cities, {
+         style: function(feature) {
+            switch (feature.properties.name) {
+            case 'Antioch': return {color: '#ffb4a0', weight: 2};
+            case 'Brentwood': return {color: '#e23929', weight: 2};
+            case 'Clayton': return {color: '#9d9f00', weight: 2};
+            case 'Concord': return {color: '#ff8b92', weight: 2};
+            case 'Danville': return {color: '#5c5314', weight: 2};
+            case 'El Cerrito': return {color: '#255e36', weight: 2};
+            case 'Hercules': return {color: '#b80029', weight: 2};
+            case 'Lafayette': return {color: '#f7319f', weight: 2};
+            case 'Martinez': return {color: '#a35900', weight: 2};
+            case 'Moraga': return {color: '#91bc00', weight: 2};
+            case 'Oakley': return {color: '#9a2348', weight: 2};
+            case 'Orinda': return {color: '#9c0f70', weight: 2};
+            case 'Pinole': return {color: '#008c50', weight: 2};
+            case 'Pittsburg': return {color: '#ff6297', weight: 2};
+            case 'Pleasant Hill': return {color: '#6d68f2', weight: 2};
+            case 'Richmond': return {color: '#a55f6a', weight: 2};
+            case 'San Pablo': return {color: '#a7d46f', weight: 2};
+            case 'San Ramon': return {color: '#eeaacb', weight: 2};
+            case 'Walnut Creek': return {color: '#ff823b', weight: 2};
+            }
+         },
+         
+         // Add popup for each city
+         onEachFeature : function(feature, layer) {
+         var popup = "<b>" + layer.feature.properties.name + "</b>";
+         layer.bindTooltip(popup);
+         }
+      }).addTo(map);
+      
+      // Work with geojson of EOC subcontractors
+      var eocLayer = L.geoJson(eoc, {
+          pointToLayer: function(feature,latlng) {
+              return L.circleMarker(latlng, {
+                 color: 'orange',
+                 weight: 1,
+                 fillOpacity: .8,
+                 radius: 5 
+              });   
+          },
+          
+          // Adding onEachFeature to create some interaction
+          onEachFeature : function(feature, layer) {
+               
+              //console.log(feature.properties.nonprofit_name)
+                var popup = "<img class= 'image' src= '"+feature.properties.image+"'>" + "<p>" + "<b>Non-Profit: </b>" + feature.properties.nonprofit_name + "<br>" + "<b>Address: </b>" + feature.properties.address + "<br>" + "<b>Mission: </b>" + feature.properties.mission + "</p>";
+                
+                layer.bindPopup(popup);
+                  
+                layer.on('mouseover', function() {
+                    layer.openPopup();
+                });
+          }
+        }).addTo(map);
+        
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+var eoc = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "nonprofit_name": "Bay Area Community Resources",
+        "address": "1321 San Pablo Ave. Ste 105, San Pablo, CA 94806",
+        "mission": "Youth Safety And Jobs",
+        "image" : "images/bay_area_community_resources.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.3332399,
+          37.9534341
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "nonprofit_name": "Bay Area Legal Aid",
+        "address": "1025 Macdonald Avenue, Richmond, CA 94801",
+        "mission": "Legal Safety Net",
+        "image": "images/bay-area-legal-aid.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.3593304,
+          37.9359326
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "nonprofit_name": "CC Health Services Homeless Program",
+        "address": "1350 Arnold Drive, Suite 202. Martinez, CA 94553",
+        "mission": "Emergency Shelter For Homeless Youth",
+        "image": "images/contra_costa_homelss_council.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.0985872,
+          37.9920579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "nonprofit_name": "Contra Costa Interfaith Housing",
+        "address": "399 Taylor Blvd. Suite 115, Pleasant Hill, CA 94523",
+        "mission": "Affordable Housing",
+        "image": "images/contra_costa_interfaith_housing.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.0721925,
+          37.9607418
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "nonprofit_name": "Opportunity Junction, Inc",
+        "address": "3102 Delta Fair Blvd., Antioch, CA 94509",
+        "mission": "Job Training",
+        "image": "images/opportunity_junction.JPG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8373568,
+          38.0018902
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "nonprofit_name": "RYSE, Inc.",
+        "address": "205 41st Street, Richmond, CA 94805",
+        "mission": "Youth Justice, Education, Job Training",
+        "image": "images/ryselogo.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.3308531,
+          37.9327984
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "nonprofit_name": "Shelter Inc of Contra Costa",
+        "address": "1333 Willow Pass Rd., Suite 206, Concord, CA 94520",
+        "mission": "Emergency Shelter For Homeless Families",
+        "image": "images/shelter_inc.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.0521243,
+          37.9698112
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "nonprofit_name": "Stand! For Families Free of Violence",
+        "address": "1410 Danzig Plaza, Concord, CA 94520",
+        "mission": "Emergency Shelter And Transitional Housing",
+        "image": "images/stand.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.049406,
+          37.9694435
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "nonprofit_name": "The Contra Costa Club Houses, Inc",
+        "address": "3024 Willow Pass Road, Concord, CA 94519",
+        "mission": "Job Training",
+        "image": "images/logo_putnam_clubhouse.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.0216676,
+          37.9803592
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "nonprofit_name": "White Pony Express",
+        "address": "1300 Boulevard Way, Walnut Creek, CA 94595",
+        "mission": "Food And Clothing For Homeless Families",
+        "image": "images/white_pony_express.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.077188,
+          37.893112
+        ]
+      }
+    }
+  ]
+};
